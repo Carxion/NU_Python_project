@@ -2,17 +2,67 @@
 #Names: Alexander Anicete, Shaun Turner, Erik Jewell, Jose Diaz, Dominick Bolano
 #Class: Programming for Cybersecurity 216 
 #Instructor: Donald Smith
-#Psuedo Code Ideas for how script will be structured
-print("please enter prospective Password. Include 16 characters, Uppercase and lowercase letters, Numbers, and special characters, no dictionary words")
+import re
+print('Please enter prospective password. Include 16 characters, uppercase and lowercase letters, numbers, and special characters(!@#):')
+def Agoodpassword():
+     
+            while True:
+                strongpassword = input()
+            
+                uppercase = []  # uppercase
+                lowercase = []  # lowercase
+                number = []  # number
+                specialcharacter = [] #special character
 
-Pass = input("Enter here:")
-# Password will be stored in pass variable
-# create rules that meet certain strong password criteria
-# for example:
-#if pass has no Upper case letters = return that password needs uppercase letters
-# if pass has no lowercase letters = return that password needs lowercase letters
-# if string contains no numbers = return that password needs numbers
-# if string contains no special characters = return that password needs special characters
-# if string contains dictionary words = return that password cannot be dictionary words\\
-#if string is less than 16 characters= return that password needs to be 16 characters or more
-# must def each of these as functions that will run and return if a password is valid. once meets all criteria can spit out that password successfully meets criteria
+                if len(strongpassword) < 16:
+                    print('Password must have 16 characters or more:')
+                    return Agoodpassword() # We added the return function because we didnt want the prompt to close until the password was set
+
+# This section of code is to make sure there is an uppercase
+
+                uppercaseRegex = re.compile(r'[A-Z]')
+                uppercase = uppercaseRegex.findall(strongpassword)
+                if uppercase == []:
+                    print('Yeah sorry, you will need an uppercase letter in there, buddy:')
+                    return Agoodpassword()
+
+
+ # This section is to make sure there is a lowercase
+
+                lowercaseRegex = re.compile(r'[a-z]')
+                lowercase = lowercaseRegex.search(strongpassword)
+                if lowercase == []:
+                    print('I do not seem to see a lowercase letter, try again:')
+                    return Agoodpassword()
+
+# This section is to make sure the user adds a number to the password
+                numberRegex = re.compile('[0-9]')
+                number = numberRegex.findall(strongpassword)
+                if number == []:
+                    print('Add a number silly goose!:')
+                    return Agoodpassword()
+
+ #This section is to make sure the user enters a special character
+
+                specialcharacterregex = re.compile('[!@_#$%^&*()<>?/\|}{~:;]')
+                specialcharacter = specialcharacterregex.findall(strongpassword)
+                if specialcharacter == []:
+                    print('you need a special character!:')
+                    return Agoodpassword()                        
+
+                else:
+                    print('You did it buddy! Password looks good to me! ')
+                    break
+           
+
+Agoodpassword()   
+
+# This section was to add a little fun
+print ("Is there anything else I can do for you?:") 
+
+while True:
+
+     messingwiththeuser: input()
+     break
+
+print("Just kidding, you're done, get outta here!")
