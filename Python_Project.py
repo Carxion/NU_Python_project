@@ -1,5 +1,5 @@
-#Project:
-#Names: Alexander Anicete, Shaun Turner, Erik Jewell, Jose Diaz, Dominick Bolano
+#Project: Strong Password Checker
+#Names: Alexander Anicete, Shaun Turner, Erik Jewell, Jose Diaz, Dominick Bolanos
 #Class: Programming for Cybersecurity 216 
 #Instructor: Donald Smith
 import re
